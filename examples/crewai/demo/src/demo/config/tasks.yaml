@@ -1,17 +1,27 @@
-research_task:
+find_advantages_task:
   description: >
-    Conduct a thorough research about {topic}
-    Make sure you find any interesting and relevant information given
-    the current year is {current_year}.
+    Conduct a thorough research about the idea: {idea}.
+    Find all advantages in favor of it.
   expected_output: >
-    A list with 10 bullet points of the most relevant information about {topic}
-  agent: researcher
+    A list with 10 advantages of the idea: {idea}
+  agent: optimist
 
-reporting_task:
+find_disadvantages_task:
   description: >
-    Review the context you got and expand each topic into a full section for a report.
-    Make sure the report is detailed and contains any and all relevant information.
+    Conduct a thorough research about the idea: {idea}.
+    Find all disadvantages in favor of it.
   expected_output: >
-    A fully fledged report with the main topics, each with a full section of information.
-    Formatted as markdown without '```'
-  agent: reporting_analyst
+    A list with 10 disadvantages of the idea: {idea}
+  agent: pessimist
+
+decide_task:
+  description: >
+    Review the advantages and disadvantages of the given idea: {idea}.
+    Compare them carefully and make the decision whether the idea is good or bad, and why.
+  expected_output: >
+    Your decision whether the idea is good or bad, and why. Short and concise answer.
+    Mention only the reason for the decision, not advantages and disadvantages themselves.
+  agent: realist
+  context:
+    - find_advantages_task
+    - find_disadvantages_task
