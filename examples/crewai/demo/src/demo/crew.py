@@ -3,6 +3,8 @@ from crewai.project import CrewBase, agent, crew, task
 from crewai.agents.agent_builder.base_agent import BaseAgent
 from typing import List
 
+from demo.tools.log_tool import LogTool
+
 
 @CrewBase
 class Demo:
@@ -19,7 +21,7 @@ class Demo:
 
     @agent
     def realist(self) -> Agent:
-        return Agent(config=self.agents_config['realist'], verbose=True)
+        return Agent(config=self.agents_config['realist'], tools=[LogTool()], verbose=True)
 
     @task
     def find_advantages_task(self) -> Task:

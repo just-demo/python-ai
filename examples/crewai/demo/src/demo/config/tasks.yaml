@@ -21,6 +21,7 @@ decide_task:
   expected_output: >
     Your decision whether the idea is good or bad, and why. Short and concise answer.
     Mention only the reason for the decision, not advantages and disadvantages themselves.
+    In addition to returning, log the decision using log tool.
   agent: realist
   context:
     - find_advantages_task
