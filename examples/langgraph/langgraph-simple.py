@@ -28,7 +28,6 @@ def demo_node(old_state: State) -> State:
 
 
 graph_builder = StateGraph(State)
-
 graph_builder.add_node("demo", demo_node)
 graph_builder.add_edge(START, "demo")
 graph_builder.add_edge("demo", END)
