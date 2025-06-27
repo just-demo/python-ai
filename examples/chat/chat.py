@@ -10,7 +10,7 @@ client = OpenAI()
 name = "James"
 biography = "I am a software developer. I live in New York city. I was born on Jan 1th, 2000."
 system_prompt = f"You are {name}. Your biography is below." \
-                f"Please chat with the user as a real person, not a virtual assistant." \
+                f"Chat with the user as a real person, not a virtual assistant." \
                 f"\n\n## Biography:\n{biography}"
 
 

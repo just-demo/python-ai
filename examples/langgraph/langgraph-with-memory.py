@@ -31,7 +31,7 @@ graph = graph_builder.compile(checkpointer=MemorySaver())
 config = {"configurable": {"thread_id": "1"}}
 
 
-# The "history" parameter is required in runtime
+# The history parameter is required in runtime
 def chat(user_message: str, history):
     result = graph.invoke({"messages": [{"role": "user", "content": user_message}]}, config=config)
     return result["messages"][-1].content

@@ -23,7 +23,7 @@ def evaluator_user_prompt(question, answer, history):
     return f"Here is the full conversation: \n\n{history}\n\n" \
            f"Here is the question: \n\n{question}\n\n" \
            f"Here is the answer: \n\n{answer}\n\n" \
-           f"Please evaluate the answer, replying with whether it is acceptable, your feedback and score."
+           f"Evaluate the answer, replying with whether it is acceptable, your feedback and score."
 
 
 def ask_question(system_prompt, question, history):

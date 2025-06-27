@@ -47,7 +47,7 @@ graph_builder.add_edge(START, "chatbot")
 graph = graph_builder.compile()
 
 
-# The "history" parameter is required in runtime
+# The history parameter is required in runtime
 def chat(user_message: str, history):
     result = graph.invoke({"messages": [{"role": "user", "content": user_message}]})
     return result["messages"][-1].content
