@@ -12,6 +12,12 @@ https://openai.github.io/openai-agents-python/
 pip install openai-agents
 ```
 
+## AutoGen
+```
+pip install autogen-ext
+pip install autogen-agentchat
+```
+
 ## CrewAI
 Use Python 3.12+
 Upgrade pip in venv:
