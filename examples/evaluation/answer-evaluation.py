@@ -49,7 +49,7 @@ def re_ask_question(question, previous_answer, history, evaluation: Evaluation):
     updated_system_prompt = f"{answerer_system_prompt}\n\n" \
                             f"## Previous answer was rejected by a quality control system as it does not have the highest score\n\n" \
                             f"## Your answer:\n{previous_answer}\n\n" \
-                            f"## Score (1-100): {evaluation.score}\n\n" \
+                            f"## Score (0-100): {evaluation.score}\n\n" \
                             f"## Feedback: {evaluation.feedback}"
     return ask_question(updated_system_prompt, question, history)
 
