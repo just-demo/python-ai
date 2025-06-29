@@ -50,11 +50,10 @@ class RandomEvaluatorAgent(RoutedAgent):
 
 async def main():
     runtime = SingleThreadedAgentRuntime()
+    runtime.start()
     await RandomGeneratorAgent.register(runtime, "generator", lambda: RandomGeneratorAgent("Generator"))
     await RandomEvaluatorAgent.register(runtime, "evaluator", lambda: RandomEvaluatorAgent("Evaluator"))
-    runtime.start()
-    message = Message(text="Generate and evaluate")
-    response = await runtime.send_message(message, AgentId("evaluator", "default"))
+    response = await runtime.send_message(Message(text="Generate and evaluate"), AgentId("evaluator", "default"))
     print(response.text)
     await runtime.stop()
     await runtime.close()
