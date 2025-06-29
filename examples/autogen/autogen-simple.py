@@ -11,6 +11,7 @@ load_dotenv(override=True)
 model = "gpt-4.1-nano"
 
 client = OpenAIChatCompletionClient(model=model)
+# client = OllamaChatCompletionClient(model="llama3.2")
 
 agent = AssistantAgent(
     name="demo_assistant",
