@@ -13,8 +13,9 @@ async def main():
     sandbox_dir = os.path.abspath(os.path.join(os.getcwd(), "sandbox"))
     # The tool will be able to create files in the directory, but the directory itself must exist
     os.makedirs(sandbox_dir, exist_ok=True)
-    mcp_server_params = {"command": "npx", "args": ["-y", "@modelcontextprotocol/server-filesystem", sandbox_dir]}
-    async with MCPServerStdio(params=mcp_server_params, client_session_timeout_seconds=60) as mcp_server_files:
+    async with MCPServerStdio(
+            params={"command": "npx", "args": ["-y", "@modelcontextprotocol/server-filesystem", sandbox_dir]},
+            client_session_timeout_seconds=60) as mcp_server:
         agent = Agent(
             name="demo_assistant",
             # If did do not specify the sandbox/ subdirectory it would try to write to emails.txt relative to the mcp/
@@ -24,9 +25,8 @@ async def main():
             # This makes the example rather useless.
             instructions="Respond to user. If the user message contains email write it to sandbox/emails.txt",
             model=model,
-            mcp_servers=[mcp_server_files]
-        )
-        with trace("MCP Demo"):
+            mcp_servers=[mcp_server])
+        with trace("MCP demo"):
             result = await Runner.run(agent, "Here is my email test@test.com")
             print(result.final_output)
 
