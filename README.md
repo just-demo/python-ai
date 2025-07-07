@@ -56,3 +56,12 @@ ollama run llama3.2
 ollama pull llama3.2
 ollama rm llama3.2
 ```
+
+## Image generation
+```
+pip install diffusers
+pip install torch
+pip install transformers
+pip install accelerate
+pip install "numpy<2"
+```
