@@ -1,4 +1,4 @@
-import uuid
+from time import time
 from openai import OpenAI
 from dotenv import load_dotenv
 
@@ -12,5 +12,5 @@ response = client.audio.speech.create(
     input="Just a demo")
 audio_bytes = response.content
 
-with open(f'audion-{uuid.uuid4()}.mp3', 'wb') as f:
+with open(f'audion-{round(time() * 1000)}.mp3', 'wb') as f:
     f.write(audio_bytes)
