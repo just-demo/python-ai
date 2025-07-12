@@ -57,11 +57,19 @@ ollama pull llama3.2
 ollama rm llama3.2
 ```
 
-## Image generation
+## Diffusers image generation
 ```
 pip install diffusers
 pip install torch
 pip install transformers
 pip install accelerate
 pip install "numpy<2"
+```
+
+## Hugging Face
+```
+pip install transformers
+pip install datasets
+pip install diffusers
+pip install soundfile
 ```
