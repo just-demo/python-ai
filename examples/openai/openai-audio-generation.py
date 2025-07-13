@@ -12,5 +12,5 @@ response = client.audio.speech.create(
     input="Just a demo")
 audio_bytes = response.content
 
-with open(f'audion-{round(time() * 1000)}.mp3', 'wb') as f:
+with open(f'audio-{round(time() * 1000)}.mp3', 'wb') as f:
     f.write(audio_bytes)
