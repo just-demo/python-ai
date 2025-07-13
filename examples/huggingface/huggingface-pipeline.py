@@ -38,7 +38,7 @@ print(result)
 # Translation
 translator = pipeline("translation_en_to_fr")
 result = translator("Bob lives in London")
-print(result[0]['translation_text'])
+print(result[0]["translation_text"])
 
 # Classification
 classifier = pipeline("zero-shot-classification")
@@ -49,7 +49,7 @@ print(result)
 # Text Generation
 text_generator = pipeline("text-generation")
 result = text_generator("The most important thing is")
-print(result[0]['generated_text'])
+print(result[0]["generated_text"])
 
 # Summarization
 text = """William Shakespeare was an English playwright, poet and actor. He is widely regarded as the greatest writer
@@ -62,7 +62,7 @@ most influential writer in the English language, and his works continue to be st
 # TODO: this failed with: we now require users to upgrade torch to at least v2.6
 summarizer = pipeline("summarization")
 result = summarizer(text, max_length=50, min_length=25, do_sample=False)
-print(result[0]['summary_text'])
+print(result[0]["summary_text"])
 
 # Image Generation
 # TODO: this takes long time - does this work?

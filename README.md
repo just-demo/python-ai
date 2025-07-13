@@ -72,4 +72,5 @@ pip install transformers
 pip install datasets
 pip install diffusers
 pip install soundfile
+pip install bitsandbytes
 ```
