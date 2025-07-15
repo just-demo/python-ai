@@ -74,3 +74,10 @@ pip install diffusers
 pip install soundfile
 pip install bitsandbytes
 ```
+
+## Vector database
+```
+pip install langchain_chroma
+pip install scikit-learn
+pip install plotly
+```
