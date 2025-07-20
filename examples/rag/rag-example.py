@@ -2,6 +2,7 @@ import os
 from dotenv import load_dotenv
 from langchain_openai import OpenAIEmbeddings, ChatOpenAI
 from langchain_chroma import Chroma
+from langchain_core.callbacks import StdOutCallbackHandler
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
 from langchain.schema import Document
@@ -30,7 +31,10 @@ vectorstore = Chroma(persist_directory=db_name, embedding_function=embedding) \
 llm = ChatOpenAI(temperature=0.7, model_name=chat_model)
 memory = ConversationBufferMemory(memory_key='chat_history', return_messages=True)
 retriever = vectorstore.as_retriever()
-conversation_chain = ConversationalRetrievalChain.from_llm(llm=llm, retriever=retriever, memory=memory)
+# conversation_chain = ConversationalRetrievalChain.from_llm(llm=llm, retriever=retriever, memory=memory)
+# Use the callback to print requests to llm
+conversation_chain = ConversationalRetrievalChain.from_llm(llm=llm, retriever=retriever, memory=memory,
+                                                           callbacks=[StdOutCallbackHandler()])
 
 result = conversation_chain.invoke({"question": "Is JustDemo suitable for commercial use?"})
 print(result["answer"])

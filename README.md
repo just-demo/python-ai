@@ -1,5 +1,10 @@
 # python-ai
 
+https://serper.dev/
+https://smith.langchain.com/
+https://huggingface.co/
+https://wandb.ai/
+
 ## OpenAI
 
 https://platform.openai.com/settings/organization/usage
