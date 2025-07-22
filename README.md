@@ -85,4 +85,5 @@ pip install bitsandbytes
 pip install langchain_chroma
 pip install scikit-learn
 pip install plotly
+pip install sentence_transformers
 ```
